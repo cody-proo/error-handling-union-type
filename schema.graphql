@@ -1,0 +1,19 @@
+type Query {
+  users(throwError: Boolean): UsersResponse
+}
+
+type Users {
+  id: ID!
+  name: String!
+}
+
+type UsersError {
+  message: String!
+  status: Int!
+}
+
+type UsersSuccess {
+  data: [Users!]!
+}
+
+union UsersResponse = UsersSuccess | UsersError
